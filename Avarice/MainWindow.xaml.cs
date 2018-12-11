@@ -23,6 +23,7 @@ namespace Avarice
 		public MainWindow()
 		{
 			InitializeComponent();
+
 		}
 	}
 }

@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Avarice"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" MinWidth="320" MinHeight="180">
+    <TreeView x:Name="treeView" VerticalContentAlignment="Stretch" Margin="0" HorizontalContentAlignment="Stretch">
+        <TreeViewItem x:Name="Root" Header="{Binding Name, ElementName=Root}" IsExpanded="True">
+            <TreeViewItem x:Name="Clipboard" Header="{Binding Name, ElementName=Clipboard}" IsExpanded="True">
+                <TreeViewItem x:Name="抽出" Header="{Binding Name, ElementName=抽出}" IsExpanded="True">
+                    <TreeViewItem x:Name="ファイル名" Header="{Binding Name, ElementName=ファイル名}" IsExpanded="True">
+                        <TreeViewItem x:Name="拡張子有" Header="{Binding Name, ElementName=拡張子有}" HorizontalAlignment="Left"/>
+                        <TreeViewItem x:Name="拡張子無" Header="{Binding Name, ElementName=拡張子無}" HorizontalAlignment="Left"/>
+                    </TreeViewItem>
+                    <TreeViewItem x:Name="親フォルダ名" Header="{Binding Name, ElementName=親フォルダ名}"/>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem x:Name="File" Header="{Binding Name, ElementName=File}" HorizontalAlignment="Left"/>
+        </TreeViewItem>
+    </TreeView>
 </Window>

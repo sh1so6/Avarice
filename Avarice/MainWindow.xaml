@@ -18,6 +18,7 @@
                 </TreeViewItem>
             </TreeViewItem>
             <TreeViewItem x:Name="File" Header="{Binding Name, ElementName=File}" HorizontalAlignment="Left"/>
+            <TreeViewItem x:Name="Timer" Header="{Binding Name, ElementName=Timer}" MouseDoubleClick="Timer_MouseDoubleClick"/>
         </TreeViewItem>
     </TreeView>
 </Window>

@@ -10,27 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Avarice
 {
-	/// <summary>
-	/// MainWindow.xaml の相互作用ロジック
-	/// </summary>
-	public partial class MainWindow : Window
-	{
-		public MainWindow()
-		{
-			InitializeComponent();
-
-		}
-
-		private void Timer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-		{
-			var timer = new Timer();
-			timer.Owner = this;
-			timer.Show();
-		}
-	}
+    /// <summary>
+    /// Timer.xaml の相互作用ロジック
+    /// </summary>
+    public partial class Timer : Window
+    {
+        public Timer()
+        {
+            InitializeComponent();
+        }
+    }
 }

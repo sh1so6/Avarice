@@ -30,6 +30,7 @@ namespace Avarice
 		{
 			var timer = new Timer();
 			timer.Owner = this;
+			Mouse.Capture(null);
 			timer.Show();
 		}
 	}

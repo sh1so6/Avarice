@@ -8,6 +8,6 @@
         Title="Timer" Width="640" Height="360">
     <StackPanel>
         <TextBox x:Name="strTimer" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="72" TextAlignment="Center" MaxLines="1" TextOptions.TextFormattingMode="Display" MaxLength="8" PreviewTextInput="textBox_PreviewTextInput" Text="00:00:00"/>
-        <Button x:Name="button" Content="Button" MouseDoubleClick="button_MouseDoubleClick"/>
+        <Button x:Name="TimerControlButton" Content="Button" PreviewMouseDown="TimerControlButton_PreviewMouseDown"/>
     </StackPanel>
 </Window>

@@ -31,6 +31,7 @@ namespace Avarice
             dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            
         }
 
         private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -41,14 +42,26 @@ namespace Avarice
         }
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            if (nowTimer.Hour <= 0 && nowTimer.Minute <= 0 && nowTimer.Second <= 0)
+            {
+                dispatcherTimer.Stop();
+                MessageBox.Show("時間だよ");
+                return;
+            }
             nowTimer = nowTimer.AddSeconds(-1);
-            Debug.WriteLine(nowTimer.ToString());
+            strTimer.Text = $"{nowTimer.Hour:D2}:{nowTimer.Minute:D2}:{nowTimer.Second:D2}";
         }
-
-        private void button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void TimerControlButton_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            nowTimer = DateTime.Parse(strTimer.Text);
-            dispatcherTimer.Start();
+            if (!dispatcherTimer.IsEnabled)
+            {
+                dispatcherTimer.Start();
+                nowTimer = DateTime.Parse(strTimer.Text);
+            }
+            else
+            {
+                dispatcherTimer.Stop();
+            }
         }
     }
 }

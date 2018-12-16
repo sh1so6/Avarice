@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Avarice
 {
@@ -19,9 +22,33 @@ namespace Avarice
     /// </summary>
     public partial class Timer : Window
     {
+        private DispatcherTimer dispatcherTimer;
+        private DateTime nowTimer = new DateTime();
         public Timer()
         {
             InitializeComponent();
+
+            dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+        }
+
+        private void textBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // 数字とコロンのみ受け付ける
+            Regex regex = new Regex("[^0-9:]");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            nowTimer = nowTimer.AddSeconds(-1);
+            Debug.WriteLine(nowTimer.ToString());
+        }
+
+        private void button_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            nowTimer = DateTime.Parse(strTimer.Text);
+            dispatcherTimer.Start();
         }
     }
 }

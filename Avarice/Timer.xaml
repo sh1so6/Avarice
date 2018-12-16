@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Avarice"
         mc:Ignorable="d"
-        Title="Timer">
-    <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="26" Margin="49,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="124"/>
-        <Label x:Name="label" Content="時間" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="163"/>
-    </Grid>
+        Title="Timer" Width="640" Height="360">
+    <StackPanel>
+        <TextBox x:Name="strTimer" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="72" TextAlignment="Center" MaxLines="1" TextOptions.TextFormattingMode="Display" MaxLength="8" PreviewTextInput="textBox_PreviewTextInput" Text="00:00:00"/>
+        <Button x:Name="button" Content="Button" MouseDoubleClick="button_MouseDoubleClick"/>
+    </StackPanel>
 </Window>
